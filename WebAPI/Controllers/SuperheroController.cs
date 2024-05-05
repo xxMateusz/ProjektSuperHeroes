@@ -25,6 +25,18 @@ namespace WebAPI.Controllers
         {
             return _mapper.Map<List<SuperheroDto>>(_service.FindAllSuperHero());
         }
+        [HttpGet("{id}")]
+        public ActionResult<SuperheroDto> GetById(int id)
+        {
+            var superhero = _service.FindSuperHeroById(id);
+            if (superhero == null)
+            {
+                return NotFound();
+            }
+
+            var superheroDto = _mapper.Map<SuperheroDto>(superhero);
+            return Ok(superheroDto);
+        }
 
         //[HttpGet]
         //[Route("{id}")]

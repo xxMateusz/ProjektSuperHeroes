@@ -21,45 +21,45 @@ namespace WebAPI.Dto
         public List<SuperpowerDto> HeroPowers { get; set; } = new List<SuperpowerDto>();
     }
 
-    public class GenderDto
-    {
-        public int Id { get; set; }
-        public string GenderName { get; set; }
-    }
+    //public class GenderDto
+    //{
+    //    public int Id { get; set; }
+    //    public string GenderName { get; set; }
+    //}
 
-    public class ColorDto
-    {
-        public int Id { get; set; }
-        public string ColourName { get; set; }
-    }
+    //public class ColorDto
+    //{
+    //    public int Id { get; set; }
+    //    public string ColourName { get; set; }
+    //}
 
-    public class RaceDto
-    {
-        public int Id { get; set; }
-        public string RaceName { get; set; }
-    }
+    //public class RaceDto
+    //{
+    //    public int Id { get; set; }
+    //    public string RaceName { get; set; }
+    //}
 
-    public class PublisherDto
-    {
-        public int Id { get; set; }
-        public string PublisherName { get; set; }
-    }
+    //public class PublisherDto
+    //{
+    //    public int Id { get; set; }
+    //    public string PublisherName { get; set; }
+    //}
 
-    public class AlignmentDto
-    {
-        public int Id { get; set; }
-        public string AlignmentName { get; set; }
-    }
+    //public class AlignmentDto
+    //{
+    //    public int Id { get; set; }
+    //    public string AlignmentName { get; set; }
+    //}
 
-    public class HeroAttributeDto
-    {
-        public int Id { get; set; }
-        public string AttributeName { get; set; }
-    }
+    //public class HeroAttributeDto
+    //{
+    //    public int Id { get; set; }
+    //    public string AttributeName { get; set; }
+    //}
 
-    public class SuperpowerDto
-    {
-        public int Id { get; set; }
-        public string SuperpowerName { get; set; }
-    }
+    //public class SuperpowerDto
+    //{
+    //    public int Id { get; set; }
+    //    public string SuperpowerName { get; set; }
+    //}
 }

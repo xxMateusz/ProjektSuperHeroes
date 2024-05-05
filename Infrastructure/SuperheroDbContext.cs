@@ -32,25 +32,50 @@ namespace Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SuperheroEntity>()
-                .HasOne(s => s.Alignment);
+                .HasOne(s => s.Alignment)
+                .WithMany()
+                .HasForeignKey(s => s.AlignmentId)
+                ;
 
             modelBuilder.Entity<SuperheroEntity>()
-                .HasOne(s => s.Gender);
+                .HasOne(s => s.Gender)
+                .WithMany()
+                .HasForeignKey(s => s.GenderId);
 
             modelBuilder.Entity<SuperheroEntity>()
-                .HasOne(s => s.EyeColor);
+                .HasOne(s => s.EyeColor)
+                .WithMany()
+                .HasForeignKey(s => s.EyeColorId);
 
             modelBuilder.Entity<SuperheroEntity>()
-                .HasOne(s => s.HairColor);
+                .HasOne(s => s.HairColor)
+                .WithMany()
+                .HasForeignKey(s => s.HairColorId);
 
             modelBuilder.Entity<SuperheroEntity>()
-                .HasOne(s => s.SkinColor);
+                .HasOne(s => s.SkinColor)
+                .WithMany()
+                .HasForeignKey(s => s.SkinColorId);
 
             modelBuilder.Entity<SuperheroEntity>()
-                .HasOne(s => s.Race);
+                .HasOne(s => s.Race)
+                .WithMany()
+                .HasForeignKey(s => s.RaceId);
 
             modelBuilder.Entity<SuperheroEntity>()
-                .HasOne(s => s.Publisher);
+                .HasOne(s => s.Publisher)
+                .WithMany()
+                .HasForeignKey(s => s.PublisherId);
+
+            modelBuilder.Entity<HeroAttributeEntity>()
+                .HasOne(a => a.Hero)
+                .WithMany()
+                .HasForeignKey(a => a.HeroId);
+
+            modelBuilder.Entity<HeroAttributeEntity>()
+                .HasOne(a => a.Attribute)
+                .WithMany()
+                .HasForeignKey(a => a.AttributeId);
         }
     }
 }

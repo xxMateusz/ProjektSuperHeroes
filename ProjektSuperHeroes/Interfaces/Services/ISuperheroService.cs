@@ -9,6 +9,7 @@ namespace ApplicationCore.Interfaces.Services
 {
     public interface ISuperheroService
     {
+        Superhero FindSuperHeroById(int id);
         List<Superhero> FindAllSuperHero();
     }
 }

@@ -2,17 +2,28 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Infrastructure.EF.Entities
 {
-    [PrimaryKey (nameof(Hero), nameof(Attribute))]
+    [PrimaryKey (nameof(HeroId), nameof(AttributeId))]
+    [Table("hero_attribute")]
     public class HeroAttributeEntity
     {
-        public SuperheroEntity Hero { get; set; }
-        public AttributeEntity Attribute { get; set; }
-        public string AttributeValue { get; set; }
+        [Column("hero_id")]
+        public int? HeroId { get; set; }
+
+        public SuperheroEntity? Hero { get; set; }
+
+        [Column("attribute_id")]
+        public int? AttributeId { get; set; }
+
+        public AttributeEntity? Attribute { get; set; }
+
+        [Column("attribute_value")]
+        public string? AttributeValue { get; set; }
     }
 }

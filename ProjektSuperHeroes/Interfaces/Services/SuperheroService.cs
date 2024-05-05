@@ -16,6 +16,10 @@ namespace ApplicationCore.Interfaces.Services
         {
             this._superheroRepository = superheroRepository;
         }
+        public Superhero FindSuperHeroById(int id)
+        {
+            return _superheroRepository.FindById(id);
+        }
 
         public List<Superhero> FindAllSuperHero()
         {
