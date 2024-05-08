@@ -76,6 +76,57 @@ namespace Infrastructure
                 .HasOne(a => a.Attribute)
                 .WithMany()
                 .HasForeignKey(a => a.AttributeId);
+
+            //modelBuilder.Entity<SuperheroEntity>()
+            //.HasMany(e => e.HeroPowers)
+            //.WithMany(e => e.Superheroes)
+            //.UsingEntity(
+            //    "hero_power",
+            //    l => l.HasOne(typeof(SuperheroEntity)).WithMany().HasForeignKey("fk_hpo_hero").HasPrincipalKey(nameof(SuperheroEntity.Id)),
+            //    r => r.HasOne(typeof(SuperpowerEntity)).WithMany().HasForeignKey("fk_hpo_po").HasPrincipalKey(nameof(SuperpowerEntity.Id));
+
+            //modelBuilder.Entity<SuperpowerEntity>(entity =>
+            //{
+            //    entity.HasKey(e => e.Id).HasName("PK__superpow__3213E83FB682851B");
+
+            //    entity.ToTable("superpower");
+
+            //    entity.Property(e => e.Id)
+            //        .ValueGeneratedNever()
+            //        .HasColumnName("id");
+            //    entity.Property(e => e.PowerName)
+            //        .HasMaxLength(200)
+            //        .IsUnicode(false)
+            //        .HasColumnName("power_name");
+            //});
+
+            modelBuilder.Entity<HeroPowerEntity>(entity =>
+            {
+                entity
+                    .HasKey(p => new
+                    {
+                        p.HeroId,
+                        p.PowerId
+                    });
+                    //.ToTable("hero_power");
+
+                entity.Property(e => e.HeroId).HasColumnName("hero_id");
+                entity.Property(e => e.PowerId).HasColumnName("power_id");
+
+                entity.HasOne(d => d.Hero).WithMany()
+                    .HasForeignKey(d => d.HeroId)
+                    .HasConstraintName("fk_hpo_hero");
+
+                entity.HasOne(d => d.Power).WithMany()
+                    .HasForeignKey(d => d.PowerId)
+                    .HasConstraintName("fk_hpo_po");
+            });
+
+            modelBuilder.Entity<SuperheroEntity>()
+                .HasMany(h => h.HeroPowers)
+                .WithMany(p => p.Superheroes)
+                .UsingEntity<HeroPowerEntity>();
+
         }
     }
 }

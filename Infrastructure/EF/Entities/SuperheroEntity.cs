@@ -64,6 +64,6 @@ namespace Infrastructure.EF.Entities
 
         //public List<HeroAttributeEntity> HeroAttributes { get; set; } = new List<HeroAttributeEntity>();
 
-        //public List<SuperpowerEntity> HeroPowers { get; set; } = new List<SuperpowerEntity>();
+        public List<SuperpowerEntity> HeroPowers { get; set; } = new List<SuperpowerEntity>();
     }
 }

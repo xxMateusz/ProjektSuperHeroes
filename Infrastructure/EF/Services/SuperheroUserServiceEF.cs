@@ -42,7 +42,7 @@ namespace Infrastructure.EF.Services
                 .Include(x => x.HairColor)
                 .Include(x => x.Alignment)
                 .Include(x => x.Publisher)
-                //.Include(x => x.HeroAttributes)
+                .Include(x => x.HeroPowers)
                 .Include(x => x.Race);
     }
 }
